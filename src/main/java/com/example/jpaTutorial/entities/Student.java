@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity(name = "Student")
+@Entity(name = "Student") // Means that we want to store it in a database table
 @Table(
         name = "students",
         uniqueConstraints = @UniqueConstraint(
@@ -42,13 +42,6 @@ public class Student {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "guardian_name")
-    private String guardianName;
-
-    @Column(name = "guardian_email")
-    private String guardianEmail;
-
-    @Column(name = "guardian_mobile")
-    private String guardianMobile;
-
+    @Embedded
+    private Guardian guardian;
 }
