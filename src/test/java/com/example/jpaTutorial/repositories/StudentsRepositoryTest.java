@@ -88,4 +88,18 @@ class StudentsRepositoryTest {
         var firstName = repository.getStudentFirstNameByEmail("some_student@email.com");
         System.out.println(firstName);
     }
+
+    @Test
+    public void printStudentByEmailNative() {
+        var student = repository.getStudentByEmailNative("some_student@email.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentByEmailNativeNamedParameter() {
+        var student = repository
+                .getStudentByEmailNativeNamedParameter("some_student@email.com")
+                .orElseThrow();
+        System.out.println(student);
+    }
 }
