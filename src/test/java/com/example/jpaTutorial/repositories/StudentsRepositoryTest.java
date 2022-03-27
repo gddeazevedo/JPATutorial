@@ -71,10 +71,21 @@ class StudentsRepositoryTest {
         System.out.println(students);
     }
 
-
     @Test
     public void printStudentByGuardianName() {
         List<Student> students = repository.findByGuardianName("Some");
         System.out.println(students);
+    }
+
+    @Test
+    public void printStudentByEmail() {
+        var student = repository.getStudentByEmail("some_student@email.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentFirstNameByEmail() {
+        var firstName = repository.getStudentFirstNameByEmail("some_student@email.com");
+        System.out.println(firstName);
     }
 }
