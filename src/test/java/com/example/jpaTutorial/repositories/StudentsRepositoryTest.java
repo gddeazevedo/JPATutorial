@@ -51,4 +51,30 @@ class StudentsRepositoryTest {
         List<Student> studentList = repository.findAll();
         System.out.println(studentList);
     }
+
+    @Test
+    public void printStudentByFirstName() {
+        List<Student> students = repository.findByFirstName("Some");
+        System.out.println(students);
+    }
+
+    @Test
+    public void printStudentByFirstNameContaining() {
+        List<Student> students = repository.findByFirstNameContaining("An");
+
+        System.out.println(students);
+    }
+
+    @Test
+    public void printStudentByLastName() {
+        List<Student> students = repository.findByLastName("Student");
+        System.out.println(students);
+    }
+
+
+    @Test
+    public void printStudentByGuardianName() {
+        List<Student> students = repository.findByGuardianName("Some");
+        System.out.println(students);
+    }
 }
