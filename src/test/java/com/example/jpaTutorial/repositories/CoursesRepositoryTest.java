@@ -1,6 +1,7 @@
 package com.example.jpaTutorial.repositories;
 
 import com.example.jpaTutorial.entities.Course;
+import com.example.jpaTutorial.entities.Student;
 import com.example.jpaTutorial.entities.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +75,29 @@ class CoursesRepositoryTest {
         Pageable firstPageTenRecords = PageRequest.of(0, 10);
         List<Course> courses = repository.findByTitleContaining("D", firstPageTenRecords).getContent();
         System.out.println("courses = " + courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+        Teacher teacher = Teacher.builder()
+                .firstName("Noice")
+                .lastName("Teacher")
+                .build();
+
+        Course course = Course.builder()
+                .title("Functional programming")
+                .credits(12)
+                .teacher(teacher)
+                .build();
+
+        Student student = Student.builder()
+                .firstName("Boring")
+                .lastName("Student")
+                .email("b_s@email.com")
+                .build();
+
+        course.addStudents(student);
+
+        repository.save(course);
     }
 }
