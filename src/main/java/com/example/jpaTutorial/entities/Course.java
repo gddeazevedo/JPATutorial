@@ -32,4 +32,7 @@ public class Course {
 
     @Column(name = "credits", nullable = false)
     private Integer credits;
+
+    @OneToOne(mappedBy = "course") // bidirectional mapping, this column is mapped by course attr in CourseMaterial
+    private CourseMaterial courseMaterial;
 }
