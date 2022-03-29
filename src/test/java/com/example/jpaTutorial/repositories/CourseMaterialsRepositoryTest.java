@@ -19,13 +19,13 @@ class CourseMaterialsRepositoryTest {
     @Test
     public void saveCourseMaterial() {
         Course course = Course.builder()
-                .title("DSA")
+                .title("Logic")
                 .credits(6)
                 .build();
 
         CourseMaterial courseMaterial = CourseMaterial
                 .builder()
-                .url("google.com")
+                .url("w3schools.com")
                 .course(course)
                 .build();
 

@@ -35,4 +35,14 @@ public class Course {
 
     @OneToOne(mappedBy = "course") // bidirectional mapping, this column is mapped by course attr in CourseMaterial
     private CourseMaterial courseMaterial;
+
+    // Many courses can be taught by one teacher
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "id"
+    )
+    private Teacher teacher;
 }
