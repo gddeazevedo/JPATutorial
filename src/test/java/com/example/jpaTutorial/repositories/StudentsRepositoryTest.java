@@ -102,4 +102,9 @@ class StudentsRepositoryTest {
                 .orElseThrow();
         System.out.println(student);
     }
+
+    @Test
+    public void updateStudentFirstNameByEmailTest() {
+        repository.updateStudentFirstNameByEmail("Another Nae", "another_student@email.com");
+    }
 }
